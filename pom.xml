@@ -135,5 +135,13 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+    <!--Google Map-->
+    <dependency>
+      <groupId>com.google.gwt.google-apis</groupId>
+      <artifactId>gwt-maps</artifactId>
+      <version>3.8.0</version>
+    </dependency>
+
   </dependencies>
 </project>
