@@ -1,6 +1,60 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:row="urn:import:com.sencha.gxt.widget.core.client.container"
+             xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+             xmlns:customised="urn:import:za.co.kodea.pinglo.customized"
+             xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+             xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
-    <g:HTMLPanel>
 
-    </g:HTMLPanel>
+    <ui:with type="com.sencha.gxt.widget.core.client.ContentPanel.ContentPanelAppearance" field="contentPanelAppearance" />
+    <ui:with type="com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer.AccordionLayoutAppearance"
+             field="accordionLayoutAppearance" />
+
+    <!--<gxt:ContentPanel  ui:field="mainPanel"  headingText="Pinglo Route Capture App">-->
+        <row:HorizontalLayoutContainer>
+            <row:child >
+                    <container:AccordionLayoutContainer ui:field="menuContainer" expandMode="SINGLE_FILL">
+
+                        <customised:myContentPanel appearance="{accordionLayoutAppearance}" headingText="Manage Taxi Ranks" ui:field="manageTaxiRankPanel">
+                            <container:VerticalLayoutContainer>
+                                <container:child>
+                                    <button:TextButton ui:field="CreateRank" text="Register Taxi Rank" />
+                                </container:child>
+                                <container:child>
+                                    <button:TextButton ui:field="UpdateRank" text="Update Taxi Rank" />
+                                </container:child>
+                                <container:child>
+                                    <button:TextButton ui:field="DeleteRank" text="Delete Taxi Rank" />
+                                </container:child>
+                                <container:child>
+                                    <button:TextButton ui:field="ViewRank" text="View Taxi Rank" />
+                                </container:child>
+                            </container:VerticalLayoutContainer>
+                        </customised:myContentPanel>
+
+                         <customised:myContentPanel appearance="{accordionLayoutAppearance}" headingText="Manage Taxi Routes" ui:field="manageTaxiRoutePanel">
+                             <container:VerticalLayoutContainer>
+                                 <container:child>
+                                     <button:TextButton ui:field="CreateRank" text="Register Taxi Rank" />
+                                 </container:child>
+                                 <container:child>
+                                     <button:TextButton ui:field="UpdateRank" text="Update Taxi Rank" />
+                                 </container:child>
+                                 <container:child>
+                                     <button:TextButton ui:field="DeleteRank" text="Delete Taxi Rank" />
+                                 </container:child>
+                                 <container:child>
+                                     <button:TextButton ui:field="ViewRank" text="View Taxi Rank" />
+                                 </container:child>
+                             </container:VerticalLayoutContainer>
+                        </customised:myContentPanel>
+
+                    </container:AccordionLayoutContainer>
+            </row:child>
+
+            <row:child>
+
+            </row:child>
+        </row:HorizontalLayoutContainer>
+    <!--</gxt:ContentPanel>-->
 </ui:UiBinder>

@@ -86,7 +86,7 @@ public class TransitDirectionsServiceMapWidget extends Composite {
         opts.setZoom(10);
         opts.setCenter(center);
         opts.setMapTypeId(MapTypeId.ROADMAP);
-        
+
         mapWidget = new MapWidget(opts);
         pWidget.add(mapWidget);
         mapWidget.setSize("750px", "500px");
