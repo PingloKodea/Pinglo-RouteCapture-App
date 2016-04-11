@@ -3,58 +3,33 @@
              xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
              xmlns:customised="urn:import:za.co.kodea.pinglo.customized"
              xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+             xmlns:tree="urn:import:com.sencha.gxt.widget.core.client.tree"
              xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 
-    <ui:with type="com.sencha.gxt.widget.core.client.ContentPanel.ContentPanelAppearance" field="contentPanelAppearance" />
-    <ui:with type="com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer.AccordionLayoutAppearance"
-             field="accordionLayoutAppearance" />
+    <ui:with type="com.sencha.gxt.data.shared.TreeStore" field="storeOptions" />
+    <ui:with type="com.sencha.gxt.core.client.ValueProvider" field="valueProvider"/>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData" field="optionsLayoutContainer">
+        <ui:attributes width="-1" height="-1"/>
+    </ui:with>
 
-    <!--<gxt:ContentPanel  ui:field="mainPanel"  headingText="Pinglo Route Capture App">-->
-        <row:HorizontalLayoutContainer>
-            <row:child >
-                    <container:AccordionLayoutContainer ui:field="menuContainer" expandMode="SINGLE_FILL">
+    <row:VerticalLayoutContainer>
+        <row:child>
+            <gxt:ContentPanel headingText="Pinglo Route Capture App"/>
+        </row:child>
 
-                        <customised:myContentPanel appearance="{accordionLayoutAppearance}" headingText="Manage Taxi Ranks" ui:field="manageTaxiRankPanel">
-                            <container:VerticalLayoutContainer>
-                                <container:child>
-                                    <button:TextButton ui:field="CreateRank" text="Register Taxi Rank" />
-                                </container:child>
-                                <container:child>
-                                    <button:TextButton ui:field="UpdateRank" text="Update Taxi Rank" />
-                                </container:child>
-                                <container:child>
-                                    <button:TextButton ui:field="DeleteRank" text="Delete Taxi Rank" />
-                                </container:child>
-                                <container:child>
-                                    <button:TextButton ui:field="ViewRank" text="View Taxi Rank" />
-                                </container:child>
-                            </container:VerticalLayoutContainer>
-                        </customised:myContentPanel>
+        <row:child>
+            <row:HorizontalLayoutContainer>
+                <row:child layoutData="{optionsLayoutContainer}">
+                    <tree:Tree ui:field="treeOption" valueProvider="{valueProvider}" store="{storeOptions}"/>
+                </row:child>
 
-                         <customised:myContentPanel appearance="{accordionLayoutAppearance}" headingText="Manage Taxi Routes" ui:field="manageTaxiRoutePanel">
-                             <container:VerticalLayoutContainer>
-                                 <container:child>
-                                     <button:TextButton ui:field="CreateRank" text="Register Taxi Rank" />
-                                 </container:child>
-                                 <container:child>
-                                     <button:TextButton ui:field="UpdateRank" text="Update Taxi Rank" />
-                                 </container:child>
-                                 <container:child>
-                                     <button:TextButton ui:field="DeleteRank" text="Delete Taxi Rank" />
-                                 </container:child>
-                                 <container:child>
-                                     <button:TextButton ui:field="ViewRank" text="View Taxi Rank" />
-                                 </container:child>
-                             </container:VerticalLayoutContainer>
-                        </customised:myContentPanel>
+                <row:child>
+                    <g:SimplePanel>
+                    </g:SimplePanel>
+                </row:child>
+            </row:HorizontalLayoutContainer>
+        </row:child>
 
-                    </container:AccordionLayoutContainer>
-            </row:child>
-
-            <row:child>
-
-            </row:child>
-        </row:HorizontalLayoutContainer>
-    <!--</gxt:ContentPanel>-->
+    </row:VerticalLayoutContainer>
 </ui:UiBinder>
