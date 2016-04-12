@@ -1,15 +1,19 @@
 package za.co.kodea.pinglo.client.model.impl;
 
+import java.io.Serializable;
+
 /**
  * Created by Ghost Desktop on 2016/04/11.
  */
-public class Option {
-    private String name;
-    private String value;
+public class Option implements Serializable {
 
-    public Option(String name, String value) {
+    private String name;
+
+    public Option() {
+    }
+
+    public Option(String name) {
         this.name = name;
-        this.value = value;
     }
 
     public String getName() {
@@ -20,11 +24,4 @@ public class Option {
         this.name = name;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

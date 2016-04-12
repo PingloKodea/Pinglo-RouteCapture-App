@@ -1,14 +1,11 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:row="urn:import:com.sencha.gxt.widget.core.client.container"
-             xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
-             xmlns:customised="urn:import:za.co.kodea.pinglo.customized"
              xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
              xmlns:tree="urn:import:com.sencha.gxt.widget.core.client.tree"
-             xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 
     <ui:with type="com.sencha.gxt.data.shared.TreeStore" field="storeOptions" />
-    <ui:with type="com.sencha.gxt.core.client.ValueProvider" field="valueProvider"/>
+    <ui:with type="com.sencha.gxt.core.client.ValueProvider" field="valueProvider" />
     <ui:with type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData" field="optionsLayoutContainer">
         <ui:attributes width="-1" height="-1"/>
     </ui:with>
@@ -21,11 +18,11 @@
         <row:child>
             <row:HorizontalLayoutContainer>
                 <row:child layoutData="{optionsLayoutContainer}">
-                    <tree:Tree ui:field="treeOption" valueProvider="{valueProvider}" store="{storeOptions}"/>
+                    <tree:Tree ui:field="tree" width="0.2" valueProvider="{valueProvider}" store="{storeOptions}" autoExpand="true"/>
                 </row:child>
 
                 <row:child>
-                    <g:SimplePanel>
+                    <g:SimplePanel ui:field="viewPanel">
                     </g:SimplePanel>
                 </row:child>
             </row:HorizontalLayoutContainer>
