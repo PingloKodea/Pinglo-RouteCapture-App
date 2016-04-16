@@ -104,11 +104,7 @@
       <artifactId>gxt</artifactId>
       <version>${gxt.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.sencha.gxt</groupId>
-      <artifactId>gxt-chart</artifactId>
-      <version>${gxt.version}</version>
-    </dependency>
+
     <!-- GXT 3.1.0+ - Neptune Theme -->
     <dependency>
       <groupId>com.sencha.gxt</groupId>

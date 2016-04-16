@@ -1,0 +1,43 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:row="urn:import:com.sencha.gxt.widget.core.client.container"
+             xmlns:tree="urn:import:com.sencha.gxt.widget.core.client.tree"
+             xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="westMargins">
+        <ui:attributes top="10" right="5" bottom="10" left="10"/>
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="centerMargins">
+        <ui:attributes top="10" right="10" bottom="10" left="5"/>
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData" field="westData">
+        <ui:attributes size="0.20" margins="{westMargins}"/>
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.container.MarginData" field="centerData">
+        <ui:attributes margins="{centerMargins}"/>
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.data.shared.TreeStore" field="storeOptions"/>
+    <ui:with type="com.sencha.gxt.core.client.ValueProvider" field="valueProvider"/>
+    <ui:with type="com.google.gwt.cell.client.Cell" field="cell"/>
+
+    <gxt:ContentPanel headingText="Pinglo Route Capture App">
+        <row:BorderLayoutContainer>
+
+            <row:west layoutData="{westData}">
+                <gxt:ContentPanel headingText="Management Options">
+                    <tree:Tree ui:field="tree" width="1" valueProvider="{valueProvider}" store="{storeOptions}" cell="{cell}" autoExpand="true"/>
+                </gxt:ContentPanel>
+            </row:west>
+
+            <row:center layoutData="{centerData}">
+                <gxt:ContentPanel ui:field="centerPanel" headerVisible="false">
+                </gxt:ContentPanel>
+            </row:center>
+
+        </row:BorderLayoutContainer>
+    </gxt:ContentPanel>
+</ui:UiBinder>

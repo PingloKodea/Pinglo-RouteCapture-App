@@ -1,0 +1,61 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:tabs="urn:import:com.sencha.gxt.widget.core.client"
+             xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+             xmlns:row="urn:import:com.sencha.gxt.widget.core.client.container"
+             xmlns:map="urn:import:com.google.gwt.maps.client"
+             xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
+             xmlns:gxt="urn:import:com.google.gwt.user.client.ui">
+
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="LayoutMargins">
+        <ui:attributes top="20" right="20" bottom="20" left="20"/>
+    </ui:with>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="verticalLayoutData">
+        <ui:attributes   width="1" height="-1" margins="{LayoutMargins}" />
+    </ui:with>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="childLayoutData">
+        <ui:attributes   width="0.5"/>
+    </ui:with>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="mapLayoutData">
+        <ui:attributes   width="0.5" margins="{LayoutMargins}"/>
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.TabItemConfig" field="shortTextTabConfig">
+        <ui:attributes text="Create New Taxi Rank"/>
+    </ui:with>
+
+    <tabs:TabPanel ui:field="folder">
+        <tabs:child config="{shortTextTabConfig}">
+            <row:VerticalLayoutContainer layoutData="{verticalLayoutData}">
+                <row:child layoutData="{childLayoutData}">
+                    <form:FieldLabel text="Rank Name">
+                        <form:widget>
+                            <form:TextField ui:field="txtRankName" allowBlank="false" emptyText="Enter taxi rank's name..." />
+                        </form:widget>
+                    </form:FieldLabel>
+                </row:child>
+
+                <row:child layoutData="{childLayoutData}">
+                    <form:FieldLabel text="Address">
+                        <form:widget>
+                            <form:TextField ui:field="txtAddress" allowBlank="false" emptyText="Enter address of taxi rank's name..."/>
+                        </form:widget>
+                    </form:FieldLabel>
+                </row:child>
+
+                <row:child  layoutData="{mapLayoutData}">
+                    <tabs:ContentPanel ui:field="mapPanel" headerVisible="false"/>
+                </row:child>
+
+
+                <!--<tabs:button>-->
+                    <!--<button:TextButton text="Save" />-->
+                <!--</tabs:button>-->
+                <!--<tabs:button>-->
+                    <!--<button:TextButton text="Cancel" />-->
+                <!--</tabs:button>-->
+
+            </row:VerticalLayoutContainer>
+        </tabs:child>
+    </tabs:TabPanel>
+
+</ui:UiBinder>

@@ -1,14 +1,12 @@
 package za.co.kodea.pinglo.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.Widget;
-import za.co.kodea.pinglo.client.view.PingloRouteCaptureAppView;
-import za.co.kodea.pinglo.client.view.TransitDirectionsServiceMapWidget;
-import za.co.kodea.pinglo.client.view.impl.PingloRouteCaptureAppViewImpl;
-
-import java.util.ArrayList;
+import com.sencha.gxt.widget.core.client.container.Viewport;
+import za.co.kodea.pinglo.client.presenter.main.impl.PingloRouteCaptureAppPresenterImpl;
+import za.co.kodea.pinglo.client.presenter.manage_taxi_rank.create.impl.CreateTaxiRankPresenterImpl;
+import za.co.kodea.pinglo.client.view.main.impl.PingloRouteCaptureAppViewImpl;
+import za.co.kodea.pinglo.client.view.manage_taxi_rank.create.impl.CreateTaxiRankViewImpl;
 
 
 /**
@@ -18,7 +16,13 @@ public class ProjectEntryPoint implements EntryPoint {
 
   @Override
   public void onModuleLoad() {
-    RootPanel.get().add(new PingloRouteCaptureAppViewImpl().asWidget());
+    Viewport viewport = new Viewport();
+    RootPanel.get().add(viewport);
+
+    //new PingloRouteCaptureAppPresenterImpl(new PingloRouteCaptureAppViewImpl()).go(viewport);
+    new CreateTaxiRankPresenterImpl(new CreateTaxiRankViewImpl()).go(viewport);
+
+    //viewport.add(new CreateTaxiRankViewImpl());
   }
 
 //  private void loadMapApi() {

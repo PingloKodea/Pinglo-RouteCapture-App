@@ -8,12 +8,14 @@ import java.io.Serializable;
 public class Option implements Serializable {
 
     private String name;
+    private String value;
 
     public Option() {
     }
 
-    public Option(String name) {
+    public Option(String name, String value) {
         this.name = name;
+        value = value;
     }
 
     public String getName() {
@@ -24,4 +26,11 @@ public class Option implements Serializable {
         this.name = name;
     }
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }
