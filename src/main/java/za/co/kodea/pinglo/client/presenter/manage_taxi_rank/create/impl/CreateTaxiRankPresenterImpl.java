@@ -23,6 +23,6 @@ public class CreateTaxiRankPresenterImpl implements CreateTaxiRankPresenter {
 
     @Override
     public void go(Viewport viewport) {
-
+        viewport.add(view.asWidget());
     }
 }
