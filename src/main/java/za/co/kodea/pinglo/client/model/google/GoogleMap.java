@@ -96,7 +96,7 @@ public class GoogleMap {
                 }else{
                     marker.clear();
                     marker =  Marker.newInstance(optionsMarker);
-
+                    marker.setMap(mapWidget);
                 }
             }
         });
