@@ -1,6 +1,7 @@
 package za.co.kodea.pinglo.client.view.main;
 
 import com.google.gwt.user.client.ui.Widget;
+import com.sencha.gxt.widget.core.client.ContentPanel;
 import za.co.kodea.pinglo.client.view.View;
 
 /**
@@ -9,4 +10,5 @@ import za.co.kodea.pinglo.client.view.View;
 public interface PingloRouteCaptureAppView extends View {
     void displayMessageBox(String title,String message);
     void setCenterScreen(Widget widget);
+    ContentPanel getCenterScreen();
 }

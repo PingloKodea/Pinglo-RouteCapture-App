@@ -59,7 +59,11 @@ public class PingloRouteCaptureAppViewImpl implements PingloRouteCaptureAppView{
     @Override
     public void displayMessageBox(String title, String message) {
         new MessageBox(title,message).show();
+    }
 
+    @Override
+    public ContentPanel getCenterScreen() {
+        return centerPanel;
     }
 
     @UiFactory

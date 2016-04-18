@@ -1,0 +1,129 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:tabs="urn:import:com.sencha.gxt.widget.core.client"
+             xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+             xmlns:row="urn:import:com.sencha.gxt.widget.core.client.container"
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="LayoutMargins">
+        <ui:attributes top="20" right="20" bottom="10" left="20"/>
+    </ui:with>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="verticalLayoutData">
+        <ui:attributes   width="1" height="-1" margins="{LayoutMargins}" />
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData" field="horizontalLayoutData">
+        <ui:attributes   width="-1" height="-1" margins="{LayoutMargins}" />
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData" field="horizontalChildLayoutData">
+        <ui:attributes   width="0.5" height="-1" />
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="childLayoutData">
+        <ui:attributes   width="0.5"/>
+    </ui:with>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="mapLayoutData">
+        <ui:attributes   width="1" height="1" margins="{LayoutMargins}"/>
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.TabItemConfig" field="shortTextTabConfig">
+        <ui:attributes text="Register New Route"/>
+    </ui:with>
+
+    <tabs:TabPanel ui:field="mainPanel">
+        <tabs:child config="{shortTextTabConfig}">
+            <row:VerticalLayoutContainer layoutData="{verticalLayoutData}">
+
+                <!--name of the route-->
+                <row:child layoutData="{childLayoutData}">
+                    <form:FieldLabel text="Route Alias">
+                        <form:widget>
+                            <form:TextField ui:field="txtRouteName" allowBlank="false" emptyText="Enter taxi route alias..." />
+                        </form:widget>
+                    </form:FieldLabel>
+                </row:child>
+
+                <!--route price-->
+                <row:child layoutData="{childLayoutData}">
+                    <form:FieldLabel text="Route Price">
+                        <form:widget>
+                            <form:TextField ui:field="txtRoutePrice" allowBlank="false" emptyText="Enter taxi route price..." />
+                        </form:widget>
+                    </form:FieldLabel>
+                </row:child>
+
+                <!--hand sign-->
+                <row:child layoutData="{childLayoutData}">
+                    <form:FieldLabel text="Hand Sign">
+                        <form:widget>
+                            <form:FileUploadField ui:field="fileHandSign" allowBlank="false" />
+                        </form:widget>
+                    </form:FieldLabel>
+                </row:child>
+
+                <!--direction flow-->
+                <row:child>
+                    <form:FieldLabel text="Flow">
+                        <form:widget>
+                            <g:HorizontalPanel>
+                                <form:Radio ui:field="radio" boxLabel="Unidirectional" />
+                                <form:Radio ui:field="radio2" boxLabel="Bidirectional" value="true" />
+                            </g:HorizontalPanel>
+                        </form:widget>
+                    </form:FieldLabel>
+                </row:child>
+
+                <!--origin and destination details-->
+                <row:child>
+                    <row:HorizontalLayoutContainer >
+
+                        <!--origin-->
+                        <row:child layoutData="{horizontalChildLayoutData}">
+                            <row:VerticalLayoutContainer layoutData="{verticalLayoutData}">
+                                <row:child layoutData="{childLayoutData}">
+                                    <form:FieldLabel text="Origin Province">
+                                        <form:widget>
+                                            <form:SimpleComboBox ui:field="comboOriginProvince" allowBlank="true" forceSelection="true" triggerAction="ALL" />
+                                        </form:widget>
+                                    </form:FieldLabel>
+                                </row:child>
+
+                                <row:child layoutData="{childLayoutData}">
+                                    <form:FieldLabel text="Origin Taxi Rank">
+                                        <form:widget>
+                                            <form:SimpleComboBox ui:field="comboOriginRank" allowBlank="true" forceSelection="true" triggerAction="ALL" />
+                                        </form:widget>
+                                    </form:FieldLabel>
+                                </row:child>
+                            </row:VerticalLayoutContainer>
+                        </row:child>
+
+                        <!--destination-->
+                        <row:child layoutData="{horizontalChildLayoutData}">
+                            <row:VerticalLayoutContainer layoutData="{verticalLayoutData}">
+                                <row:child layoutData="{childLayoutData}">
+                                    <form:FieldLabel text="Destination Province">
+                                        <form:widget>
+                                            <form:SimpleComboBox ui:field="comboDestinationProvince" allowBlank="true" forceSelection="true" triggerAction="ALL"/>
+                                        </form:widget>
+                                    </form:FieldLabel>
+                                </row:child>
+
+                                <row:child layoutData="{childLayoutData}">
+                                    <form:FieldLabel text="Destination Taxi Rank">
+                                        <form:widget>
+                                            <form:SimpleComboBox ui:field="comboDestinationRank" allowBlank="true" forceSelection="true" triggerAction="ALL"/>
+                                        </form:widget>
+                                    </form:FieldLabel>
+                                </row:child>
+                            </row:VerticalLayoutContainer>
+                        </row:child>
+
+                    </row:HorizontalLayoutContainer>
+                </row:child>
+
+            </row:VerticalLayoutContainer>
+        </tabs:child>
+    </tabs:TabPanel>
+</ui:UiBinder>
