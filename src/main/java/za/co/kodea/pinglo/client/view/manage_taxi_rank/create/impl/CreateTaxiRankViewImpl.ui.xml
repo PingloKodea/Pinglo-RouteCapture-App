@@ -8,6 +8,12 @@
     <ui:with type="com.sencha.gxt.core.client.util.Margins" field="LayoutMargins">
         <ui:attributes top="20" right="20" bottom="10" left="20"/>
     </ui:with>
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="LayoutMarginsButtons">
+        <ui:attributes top="20" right="20" bottom="10" left="20"/>
+    </ui:with>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="buttonLayoutData">
+        <ui:attributes   width="1" height="-1" margins="{LayoutMargins}" />
+    </ui:with>
     <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="verticalLayoutData">
         <ui:attributes   width="1" height="-1" margins="{LayoutMargins}" />
     </ui:with>
@@ -47,11 +53,14 @@
 
                 <row:child>
                     <row:FlowLayoutContainer >
+                        <row:child>
                             <button:TextButton text="Save" />
+                        </row:child>
+                        <row:child>
                             <button:TextButton text="Cancel" />
+                        </row:child>
                     </row:FlowLayoutContainer>
                 </row:child>
-
             </row:VerticalLayoutContainer>
         </tabs:child>
     </tabs:TabPanel>

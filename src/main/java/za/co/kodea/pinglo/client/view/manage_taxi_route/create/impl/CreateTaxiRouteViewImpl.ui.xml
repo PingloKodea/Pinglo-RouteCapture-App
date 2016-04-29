@@ -6,8 +6,21 @@
 
 
     <ui:with type="com.sencha.gxt.core.client.util.Margins" field="LayoutMargins">
+        <ui:attributes top="20" right="20" bottom="20" left="20"/>
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="mapMargins">
         <ui:attributes top="20" right="20" bottom="10" left="20"/>
     </ui:with>
+
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="CssFloatMargins">
+        <ui:attributes top="10" right="0" bottom="0" left="0"/>
+    </ui:with>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.container.CssFloatLayoutContainer.CssFloatData" field="CssFloatLayoutData">
+        <ui:attributes  size="380" margins="{CssFloatMargins}" />
+    </ui:with>
+
     <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="verticalLayoutData">
         <ui:attributes   width="1" height="-1" margins="{LayoutMargins}" />
     </ui:with>
@@ -24,7 +37,7 @@
         <ui:attributes   width="0.5"/>
     </ui:with>
     <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="mapLayoutData">
-        <ui:attributes   width="1" height="1" margins="{LayoutMargins}"/>
+        <ui:attributes   width="1" height="1" margins="{mapMargins}"/>
     </ui:with>
 
     <ui:with type="com.sencha.gxt.widget.core.client.TabItemConfig" field="shortTextTabConfig">
@@ -76,51 +89,62 @@
 
                 <!--origin and destination details-->
                 <row:child>
-                    <row:HorizontalLayoutContainer >
+                        <tabs:FramedPanel headerVisible="false" borders="false">
+                            <!--origin-->
+                            <row:CssFloatLayoutContainer >
+                                <row:child layoutData="{CssFloatLayoutData}">
+                                    <row:VerticalLayoutContainer>
+                                        <row:child>
+                                            <form:FieldLabel text="Origin"/>
+                                        </row:child>
+                                        <row:child>
+                                            <form:FieldLabel text= "Province">
+                                                <form:widget>
+                                                    <form:SimpleComboBox ui:field="comboOriginProvince" allowBlank="true" forceSelection="true" triggerAction="ALL" />
+                                                </form:widget>
+                                            </form:FieldLabel>
+                                        </row:child>
 
-                        <!--origin-->
-                        <row:child layoutData="{horizontalChildLayoutData}">
-                            <row:VerticalLayoutContainer layoutData="{verticalLayoutData}">
-                                <row:child layoutData="{childLayoutData}">
-                                    <form:FieldLabel text="Origin Province">
-                                        <form:widget>
-                                            <form:SimpleComboBox ui:field="comboOriginProvince" allowBlank="true" forceSelection="true" triggerAction="ALL" />
-                                        </form:widget>
-                                    </form:FieldLabel>
+                                        <row:child>
+                                            <form:FieldLabel text="Taxi Rank">
+                                                <form:widget>
+                                                    <form:SimpleComboBox ui:field="comboOriginRank" allowBlank="true" forceSelection="true" triggerAction="ALL" />
+                                                </form:widget>
+                                            </form:FieldLabel>
+                                        </row:child>
+                                    </row:VerticalLayoutContainer>
                                 </row:child>
 
-                                <row:child layoutData="{childLayoutData}">
-                                    <form:FieldLabel text="Origin Taxi Rank">
-                                        <form:widget>
-                                            <form:SimpleComboBox ui:field="comboOriginRank" allowBlank="true" forceSelection="true" triggerAction="ALL" />
-                                        </form:widget>
-                                    </form:FieldLabel>
-                                </row:child>
-                            </row:VerticalLayoutContainer>
-                        </row:child>
+                                <row:child layoutData="{CssFloatLayoutData}">
+                                    <!--destination-->
+                                    <row:VerticalLayoutContainer >
+                                        <row:child>
+                                            <form:FieldLabel text="Destination"/>
+                                        </row:child>
+                                        <row:child >
+                                            <form:FieldLabel text="Province">
+                                                <form:widget>
+                                                    <form:SimpleComboBox ui:field="comboDestinationProvince" allowBlank="true" forceSelection="true" triggerAction="ALL"/>
+                                                </form:widget>
+                                            </form:FieldLabel>
+                                        </row:child>
 
-                        <!--destination-->
-                        <row:child layoutData="{horizontalChildLayoutData}">
-                            <row:VerticalLayoutContainer layoutData="{verticalLayoutData}">
-                                <row:child layoutData="{childLayoutData}">
-                                    <form:FieldLabel text="Destination Province">
-                                        <form:widget>
-                                            <form:SimpleComboBox ui:field="comboDestinationProvince" allowBlank="true" forceSelection="true" triggerAction="ALL"/>
-                                        </form:widget>
-                                    </form:FieldLabel>
+                                        <row:child >
+                                            <form:FieldLabel text="Taxi Rank">
+                                                <form:widget>
+                                                    <form:SimpleComboBox ui:field="comboDestinationRank" allowBlank="true" forceSelection="true" triggerAction="ALL"/>
+                                                </form:widget>
+                                            </form:FieldLabel>
+                                        </row:child>
+                                    </row:VerticalLayoutContainer>
                                 </row:child>
+                            </row:CssFloatLayoutContainer>
 
-                                <row:child layoutData="{childLayoutData}">
-                                    <form:FieldLabel text="Destination Taxi Rank">
-                                        <form:widget>
-                                            <form:SimpleComboBox ui:field="comboDestinationRank" allowBlank="true" forceSelection="true" triggerAction="ALL"/>
-                                        </form:widget>
-                                    </form:FieldLabel>
-                                </row:child>
-                            </row:VerticalLayoutContainer>
-                        </row:child>
+                        </tabs:FramedPanel>
+                </row:child>
 
-                    </row:HorizontalLayoutContainer>
+                <row:child layoutData="{mapLayoutData}">
+                    <tabs:ContentPanel ui:field="mapPanel" headerVisible="false"/>
                 </row:child>
 
             </row:VerticalLayoutContainer>

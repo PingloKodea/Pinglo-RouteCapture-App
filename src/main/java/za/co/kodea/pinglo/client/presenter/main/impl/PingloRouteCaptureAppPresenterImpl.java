@@ -32,6 +32,7 @@ public class PingloRouteCaptureAppPresenterImpl implements PingloRouteCaptureApp
 
     @Override
     public void loadScreen(String screenName) {
+        view.getCenterScreen().clear();
 
         switch(screenName){
             case"Create Taxi Rank": view.setCenterScreen(new CreateTaxiRankViewImpl().asWidget()); /*ResizeEvent.fire(view.getCenterScreen().getOffsetWidth(), view.getCenterScreen().getOffsetHeight()); */break;
@@ -44,5 +45,7 @@ public class PingloRouteCaptureAppPresenterImpl implements PingloRouteCaptureApp
             case"Delete Taxi Route": view.displayMessageBox("Error","Delete Taxi Route"); break;
             default: view.displayMessageBox("Error","Option not recognised");
         }
+
+        view.getCenterScreen().forceLayout(); //refresh screen
     }
 }
