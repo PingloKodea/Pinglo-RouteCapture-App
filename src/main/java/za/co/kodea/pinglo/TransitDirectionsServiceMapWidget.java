@@ -1,4 +1,4 @@
-package za.co.kodea.pinglo.client.view;
+package za.co.kodea.pinglo;
 
 /**
  * Created by Ghost on 3/27/2016.

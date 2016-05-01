@@ -5,18 +5,13 @@ import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.overlays.Marker;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.sencha.gxt.data.shared.ListStore;
 import com.sencha.gxt.data.shared.StringLabelProvider;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.TabPanel;
 import com.sencha.gxt.widget.core.client.form.SimpleComboBox;
-import za.co.kodea.pinglo.client.model.google.GoogleMap;
-import za.co.kodea.pinglo.client.model.impl.Province;
+import za.co.kodea.pinglo.shared.google.GoogleMap;
 import za.co.kodea.pinglo.client.presenter.Presenter;
-import za.co.kodea.pinglo.client.presenter.manage_taxi_rank.create.CreateTaxiRankPresenter;
 import za.co.kodea.pinglo.client.presenter.manage_taxi_route.create.CreateTaxiRoutePresenter;
 import za.co.kodea.pinglo.client.view.manage_taxi_route.create.CreateTaxiRouteView;
 
@@ -63,8 +58,8 @@ public class CreateTaxiRouteViewImpl implements CreateTaxiRouteView {
 
     private void initMap() {
         mapPanel = new ContentPanel();
-        googleMap = new GoogleMap(mapPanel,GoogleMap.REGISTER_RANK);
-        mapWidget = googleMap.getMapWidget();
+        GoogleMap.setMapPanel(mapPanel);
+        //GoogleMap.setMarkerBehaviour(GoogleMapBehavior.addMarkerOnClick1(GoogleMap.getGoogleMapInstance()));
     }
 
     private void initUIComboBoxes() {

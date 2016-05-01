@@ -1,8 +1,7 @@
 package za.co.kodea.pinglo.client.presenter.main.impl;
 
-import com.google.gwt.event.logical.shared.ResizeEvent;
-import com.google.gwt.user.client.Window;
 import com.sencha.gxt.widget.core.client.container.Viewport;
+import za.co.kodea.pinglo.shared.google.GoogleMap;
 import za.co.kodea.pinglo.client.presenter.main.PingloRouteCaptureAppPresenter;
 import za.co.kodea.pinglo.client.view.main.PingloRouteCaptureAppView;
 import za.co.kodea.pinglo.client.view.manage_taxi_rank.create.impl.CreateTaxiRankViewImpl;
@@ -27,6 +26,7 @@ public class PingloRouteCaptureAppPresenterImpl implements PingloRouteCaptureApp
 
     @Override
     public void go(Viewport viewport) {
+        GoogleMap.loadMapsLibraries();
         viewport.add(view);
     }
 
@@ -35,7 +35,7 @@ public class PingloRouteCaptureAppPresenterImpl implements PingloRouteCaptureApp
         view.getCenterScreen().clear();
 
         switch(screenName){
-            case"Create Taxi Rank": view.setCenterScreen(new CreateTaxiRankViewImpl().asWidget()); /*ResizeEvent.fire(view.getCenterScreen().getOffsetWidth(), view.getCenterScreen().getOffsetHeight()); */break;
+            case"Create Taxi Rank": view.setCenterScreen(new CreateTaxiRankViewImpl().asWidget());break;
             case"View Taxi Rank": view.displayMessageBox("Error","View Taxi Rank"); break;
             case"Update Taxi Rank": view.displayMessageBox("Error","Update Taxi Rank");  break;
             case"Delete Taxi Rank": view.displayMessageBox("Error","Delete Taxi Rank"); break;
