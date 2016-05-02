@@ -18,14 +18,12 @@ public class GeocodingService {
     }
 
     public GeocoderResult getAddress(LatLng latLng){
-        String uri = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+latLng.getLatitude()+","+latLng.getLongitude()+"&key="+ Key.getKey();
-        final GeocoderResult[] result = new GeocoderResult[0];
+        final GeocoderResult[] result = new GeocoderResult[1];
 
         GeocoderRequest request = GeocoderRequest.newInstance();
         request.setLocation(latLng);
 
         Geocoder geocoder = Geocoder.newInstance();
-
         geocoder.geocode(request, new GeocoderRequestHandler() {
             @Override
             public void onCallback(JsArray<GeocoderResult> jsArray, GeocoderStatus geocoderStatus) {
@@ -36,6 +34,7 @@ public class GeocodingService {
                 }
             }
         });
+
         return result[0];
     }
 

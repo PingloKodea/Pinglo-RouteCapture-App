@@ -10,4 +10,5 @@ import za.co.kodea.pinglo.client.presenter.Presenter;
  */
 public interface PingloRouteCaptureAppPresenter extends Presenter {
     void loadScreen(String screenName);
+    void setViewport(Viewport viewport);
 }

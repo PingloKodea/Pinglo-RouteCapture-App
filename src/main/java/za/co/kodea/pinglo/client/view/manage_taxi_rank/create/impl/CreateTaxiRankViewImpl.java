@@ -8,9 +8,11 @@ import com.google.gwt.maps.client.overlays.Marker;
 import com.google.gwt.maps.client.overlays.MarkerOptions;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.TabPanel;
+import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.form.TextField;
 import za.co.kodea.pinglo.shared.google.GoogleMap;
 import za.co.kodea.pinglo.client.presenter.Presenter;
@@ -35,6 +37,10 @@ public class CreateTaxiRankViewImpl implements CreateTaxiRankView {
     ContentPanel mapPanel;
     @UiField(provided = true)
     TextField txtAddress;
+    @UiHandler("save")
+    public void click(SelectEvent selectEvent){
+        presenter.validateLatLng(optionsMarker.getPosition());
+    }
 
 
     public CreateTaxiRankViewImpl() {
@@ -50,10 +56,8 @@ public class CreateTaxiRankViewImpl implements CreateTaxiRankView {
             @Override
             public void onEvent(ClickMapEvent clickMapEvent) {
                 log.info("event fired");
-                LatLng latLng = clickMapEvent.getMouseEvent().getLatLng();
-                log.info(latLng.getToString());
-                optionsMarker.setPosition(latLng);
-                presenter.validateLatLng(latLng);
+                optionsMarker.setPosition(clickMapEvent.getMouseEvent().getLatLng());
+                //presenter.validateLatLng(clickMapEvent.getMouseEvent().getLatLng());
 
                 if(marker == null){
                     marker =  Marker.newInstance(optionsMarker);

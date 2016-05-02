@@ -4,7 +4,7 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.services.GeocoderAddressComponent;
 import com.google.gwt.maps.client.services.GeocoderResult;
-import com.sencha.gxt.widget.core.client.container.Viewport;
+import com.sencha.gxt.widget.core.client.ContentPanel;
 import za.co.kodea.pinglo.client.presenter.manage_taxi_rank.create.CreateTaxiRankPresenter;
 import za.co.kodea.pinglo.client.view.manage_taxi_rank.create.CreateTaxiRankView;
 import za.co.kodea.pinglo.shared.google.api.Geocoding.GeocodingService;
@@ -29,14 +29,12 @@ public class CreateTaxiRankPresenterImpl implements CreateTaxiRankPresenter {
 
     @Override
     public void validateLatLng(LatLng latLng) {
-        if (latLng == null) return;
         this.latLng = latLng;
         address = buildAddress(service.getAddress(latLng));
 
     }
 
     private String buildAddress(GeocoderResult result) {
-        if (result == null) return null;
 
         String street_number = "";
         String route = "";
@@ -88,7 +86,7 @@ public class CreateTaxiRankPresenterImpl implements CreateTaxiRankPresenter {
     }
 
     @Override
-    public void go(Viewport viewport) {
-        viewport.add(view.asWidget());
+    public void go(ContentPanel contentPanel) {
+        contentPanel.add(view.asWidget());
     }
 }

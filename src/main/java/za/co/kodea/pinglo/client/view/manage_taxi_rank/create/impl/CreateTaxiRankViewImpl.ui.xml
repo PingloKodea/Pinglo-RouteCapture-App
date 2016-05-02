@@ -54,7 +54,7 @@
                 <row:child>
                     <row:FlowLayoutContainer >
                         <row:child>
-                            <button:TextButton text="Save" />
+                            <button:TextButton text="Save" ui:field="save"/>
                         </row:child>
                         <row:child>
                             <button:TextButton text="Cancel" />
